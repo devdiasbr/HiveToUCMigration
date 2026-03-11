@@ -1,0 +1,6 @@
+# Dependências do hive-data-generator
+# Instalar no cluster via: %pip install -r requirements.txt
+# ou usar o notebook 01_install_dependencies.py
+
+faker==24.0.0
+python-dateutil>=2.8.2

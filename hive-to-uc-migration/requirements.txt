@@ -1,0 +1,55 @@
+# =============================================================================
+# hive-to-uc-migration - Dependências do Projeto
+# =============================================================================
+# Notas:
+#   - pyspark, delta-spark e dbutils são PRÉ-INSTALADOS nos clusters Databricks.
+#     As versões listadas aqui são para desenvolvimento/testes locais.
+#   - Instale com: pip install -r requirements.txt
+#   - Para instalar no cluster via notebook: %pip install <pacote>
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Databricks SDK - interação com APIs do workspace (Unity Catalog, Jobs, etc.)
+# Docs: https://databricks-sdk-py.readthedocs.io
+# -----------------------------------------------------------------------------
+databricks-sdk>=0.20.0
+
+# -----------------------------------------------------------------------------
+# PySpark - execução local fora do cluster Databricks
+# Use a versão compatível com o Databricks Runtime do seu cluster:
+#   DBR 13.x → PySpark 3.4.x
+#   DBR 14.x → PySpark 3.5.x
+#   DBR 15.x → PySpark 3.5.x
+# -----------------------------------------------------------------------------
+pyspark>=3.4.0,<3.6.0
+
+# -----------------------------------------------------------------------------
+# Delta Lake - suporte local ao formato Delta
+# A versão deve ser compatível com a do PySpark acima.
+# Tabela de compatibilidade: https://docs.delta.io/latest/releases.html
+# -----------------------------------------------------------------------------
+delta-spark>=2.4.0,<3.1.0
+
+# -----------------------------------------------------------------------------
+# Testes
+# -----------------------------------------------------------------------------
+pytest>=7.4.0
+pytest-cov>=4.1.0          # Cobertura de testes
+pytest-mock>=3.11.0        # Mocks para testes unitários
+chispa>=0.9.4              # Comparação de DataFrames PySpark em testes
+
+# -----------------------------------------------------------------------------
+# Qualidade de Código
+# -----------------------------------------------------------------------------
+black>=23.0.0              # Formatador de código
+flake8>=6.1.0              # Linter
+isort>=5.12.0              # Ordenação de imports
+pre-commit>=3.4.0          # Git hooks para CI local
+
+# -----------------------------------------------------------------------------
+# Utilitários de Desenvolvimento
+# -----------------------------------------------------------------------------
+python-dotenv>=1.0.0       # Variáveis de ambiente (.env) para dev local
+pyyaml>=6.0.1              # Leitura de configs YAML
+click>=8.1.7               # CLI helper (scripts de automação)
+tabulate>=0.9.0            # Formatação de tabelas no terminal

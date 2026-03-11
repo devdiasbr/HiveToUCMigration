@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.coverage
+coverage_report/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.env
+derby.log
+metastore_db/
+spark-warehouse/
+.claude/
