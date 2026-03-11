@@ -126,7 +126,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("faixa_score", "status")
     .saveAsTable(f"`{DATABASE}`.`clientes_pf`"))
 
 count = spark.table(f"`{DATABASE}`.`clientes_pf`").count()
@@ -177,7 +176,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("porte", "setor")
     .saveAsTable(f"`{DATABASE}`.`clientes_pj`"))
 
 count = spark.table(f"`{DATABASE}`.`clientes_pj`").count()
@@ -246,7 +244,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("uf")
     .saveAsTable(f"`{DATABASE}`.`enderecos`"))
 
 print(f"  enderecos: {end_df.count():,} registros")

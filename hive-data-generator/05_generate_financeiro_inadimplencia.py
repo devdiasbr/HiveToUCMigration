@@ -102,7 +102,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("ano_mes")
     .saveAsTable("`serasa_financeiro`.`transacoes`"))
 
 print(f"  transacoes: {trans_df.count():,} registros")
@@ -219,7 +218,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("ano_mes")
     .saveAsTable("`serasa_inadimplencia`.`ocorrencias`"))
 
 print(f"  ocorrencias: {ocorr_df.count():,} registros")
@@ -261,7 +259,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("uf")
     .saveAsTable("`serasa_inadimplencia`.`protestos`"))
 
 print(f"  protestos: {prot_df.count():,} registros")

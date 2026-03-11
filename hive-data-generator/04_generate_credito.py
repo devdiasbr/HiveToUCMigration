@@ -92,7 +92,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("ano_mes")
     .saveAsTable(f"`{DATABASE}`.`score_historico`"))
 
 print(f"  score_historico: {score_df.count():,} registros")
@@ -135,7 +134,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("ano_mes")
     .saveAsTable(f"`{DATABASE}`.`consultas_credito`"))
 
 print(f"  consultas_credito: {consultas_df.count():,} registros")

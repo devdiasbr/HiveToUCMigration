@@ -123,7 +123,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("status")
     .saveAsTable(f"`{DATABASE}`.`assinaturas`"))
 
 print(f"  assinaturas: {assin_df.count():,} registros")
@@ -167,7 +166,6 @@ if DROP_IF_EXISTS:
     .format("delta")
     .mode("overwrite")
     .option("overwriteSchema", "true")
-    .partitionBy("ano_mes")
     .saveAsTable(f"`{DATABASE}`.`uso_produto`"))
 
 print(f"  uso_produto: {uso_df.count():,} registros")
