@@ -27,7 +27,7 @@ NUM_PF         = dbutils.widgets.get("num_clientes_pf")
 EXTERNAL_PATH  = dbutils.widgets.get("external_path")
 DROP_IF_EXISTS = dbutils.widgets.get("drop_if_exists")
 
-NOTEBOOK_BASE = "/Workspace/Repos/serasa/hive-data-generator"
+NOTEBOOK_BASE = "/".join(dbutils.notebook.entry_point.getDbutils().notebook().getContext().notebookPath().get().split("/")[:-1])
 
 # COMMAND ----------
 
