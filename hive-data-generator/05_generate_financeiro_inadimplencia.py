@@ -153,7 +153,25 @@ if DROP_IF_EXISTS:
     spark.sql("DROP TABLE IF EXISTS `serasa_financeiro`.`contratos`")
 
 spark.sql(f"""
-    CREATE TABLE IF NOT EXISTS `serasa_financeiro`.`contratos`
+    CREATE TABLE IF NOT EXISTS `serasa_financeiro`.`contratos` (
+        id_contrato          BIGINT,
+        id_cliente           BIGINT,
+        numero_contrato      STRING,
+        modalidade           STRING,
+        banco                STRING,
+        valor_contratado     DOUBLE,
+        valor_saldo_devedor  DOUBLE,
+        taxa_juros_mensal    DOUBLE,
+        prazo_meses          BIGINT,
+        parcela_valor        DOUBLE,
+        parcelas_pagas       BIGINT,
+        parcelas_em_atraso   BIGINT,
+        dt_inicio            DATE,
+        dt_fim_previsto      DATE,
+        dt_liquidacao        DATE,
+        uf                   STRING,
+        status               STRING
+    )
     USING ORC
     PARTITIONED BY (status)
     LOCATION '{ext_contratos_path}'

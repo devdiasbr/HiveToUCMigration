@@ -292,14 +292,14 @@ if DROP_IF_EXISTS:
 
 spark.sql(f"""
     CREATE TABLE IF NOT EXISTS `{DATABASE}`.`contatos` (
-        id_contato BIGINT,
-        id_cliente BIGINT,
-        tipo_cliente STRING,
-        valor STRING,
+        id_contato     BIGINT,
+        id_cliente     BIGINT,
+        tipo_cliente   STRING,
+        valor          STRING,
         flag_principal BOOLEAN,
-        flag_ativo BOOLEAN,
-        dt_cadastro DATE,
-        tipo_contato STRING
+        flag_ativo     BOOLEAN,
+        dt_cadastro    DATE,
+        tipo_contato   STRING
     )
     USING PARQUET
     PARTITIONED BY (tipo_contato)
