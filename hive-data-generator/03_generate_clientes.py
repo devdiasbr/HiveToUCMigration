@@ -1,5 +1,4 @@
 # Databricks notebook source
-
 # MAGIC %md
 # MAGIC # 03 - Gerar Dados: serasa_clientes
 # MAGIC
@@ -259,6 +258,7 @@ print(f"  enderecos: {end_df.count():,} registros")
 
 # COMMAND ----------
 
+# DBTITLE 1,Cell 13
 print("Gerando contatos (EXTERNAL / Parquet)...")
 
 contato_rows = []
@@ -291,7 +291,16 @@ if DROP_IF_EXISTS:
     spark.sql(f"DROP TABLE IF EXISTS `{DATABASE}`.`contatos`")
 
 spark.sql(f"""
-    CREATE TABLE IF NOT EXISTS `{DATABASE}`.`contatos`
+    CREATE TABLE IF NOT EXISTS `{DATABASE}`.`contatos` (
+        id_contato BIGINT,
+        id_cliente BIGINT,
+        tipo_cliente STRING,
+        valor STRING,
+        flag_principal BOOLEAN,
+        flag_ativo BOOLEAN,
+        dt_cadastro DATE,
+        tipo_contato STRING
+    )
     USING PARQUET
     PARTITIONED BY (tipo_contato)
     LOCATION '{ext_contatos_path}'
